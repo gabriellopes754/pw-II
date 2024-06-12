@@ -1,0 +1,27 @@
+.imgava{
+    max-width: 100%; /* Garante que a imagem do avatar não ultrapasse a largura do contêiner */
+      display: block; /* Remove espaços em branco abaixo da imagem */
+      margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+.container{
+    height: auto;
+}
+
+
+
+  .center-text {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    position: relative; /* Permite a posição relativa para alinhar o texto verticalmente */
+    height: auto; /* Define a altura da área de visualização (viewport) */
+  }
+  .centered-text {
+    position: absolute; /* Posição absoluta para centralizar o texto verticalmente */
+    transform: translateY(50%); /* Move o texto para cima metade da sua altura para centralização vertical */
+  }
+
+  .parabens-box {
+    background-color: #f0f0f0; /* Cor de fundo da div */
+    padding: 20px; /* Espaçamento interno da div */
+    text-align: center; /* Centraliza o texto na div */
+  }
