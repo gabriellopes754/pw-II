@@ -1,11 +1,10 @@
 <?php
 include "conexao.php";
-$rm = $_GET['rm'];
-$dados = $conn->query("SELECT avatar FROM cadastro where rm = $rm");
+$id = $_GET['id'];
+$dados = $conn->query("SELECT id FROM usuarios where id = $id");
 while ($linha = mysqli_fetch_array($dados)) {
-    $avatar  = $linha['avatar'];
+    $id  = $linha['id'];
 }
-unlink("$avatar");
-mysqli_query($conn, "DELETE FROM cadastro WHERE  rm = '$rm' ");
+mysqli_query($conn, "DELETE FROM usuarios WHERE  id = '$id' ");
 echo "Dados Apagados para SEMPRE!!!";
-header("refresh:5;url=listar.php");
+header("refresh:2;url=admin.php");

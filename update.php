@@ -1,28 +1,19 @@
 <?php
+
 include "conexao.php";
 
-$rm = $_POST['rm'];
+$id = $_POST['id'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-// fazer a validacao do email, se for meu atualizar se for de outra nao atualizar
-
-
-$vemail = $conn->query("SELECT * FROM cadastro WHERE email = '$email' AND rm = '$rm'");
-$check = mysqli_num_rows($vemail);
-
-//echo "$check";
-
-if($check == 1){
-    echo "OI";
-
+//verificação de e-mail
+$checkEmail = $conn->query("SELECT id FROM usuarios WHERE email = '$email' AND id != '$id'");
+if ($checkEmail->num_rows > 0) {
+    echo "Email já utilizado por outro usuário.";
+} else {
+    $conn->query("UPDATE usuarios SET nome = '$nome', email = '$email', senha = '$senha' WHERE id = $id");
+    echo "Dados Atualizados";
+    header("refresh:3;url=admin.php");
 }
-
-
-
-
-
-/* $conn->query("UPDATE cadastro SET nome = '$nome', email = '$email', senha ='$senha' WHERE rm = $rm");
-    echo "Dados Atualizados"; */
-   // header("refresh:3;url=listar.php");
+?>

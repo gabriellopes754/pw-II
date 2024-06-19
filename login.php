@@ -1,5 +1,8 @@
+
+<?php include "./headerfooter/header.php"; ?>
 <!doctype html>
 <html lang="en">
+
 
 <head>
     <title>Title</title>
@@ -19,10 +22,10 @@
         <h1>Login</h1>
         <form action="logar.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="login" class="form-label">RM ou Email</label>
+                <label for="login" class="form-label">Email</label>
                 <input type="text" class="form-control" name="login" id="login" aria-describedby="login" placeholder=""
                     required>
-                <small id="login" class="form-text text-muted">Digite o Rm com 5 Digitos ou seu Email</small>
+                <small id="login" class="form-text text-muted">Digite o seu Email</small>
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Password</label>
@@ -30,7 +33,8 @@
                 <small id="helpId" class="form-text text-muted">Digite sua senha</small>
             </div>
 
-            <button type="submit">Salvar</button>
+            <button type="submit" class="btn btn-outline-secondary ms-2">Entrar</button>
+            <a href="cadastro.html" class="btn btn-outline-secondary ms-2">Cadastre-se</a>
         </form>
     </div>
 
@@ -48,3 +52,4 @@
 </body>
 
 </html>
+<?php include "./headerfooter/footer.php"; ?>

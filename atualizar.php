@@ -1,16 +1,15 @@
 <?php
+ include "./headerfooter/header.php";
 
 include "conexao.php";
-$rm = $_GET['rm'];
+$id = $_GET['id'];
 
-$dados = $conn->query("SELECT * FROM cadastro where rm = $rm");
+$dados = $conn->query("SELECT * FROM usuarios where id = $id");
 while ($linha = $dados->fetch_assoc()) {
-    $rm = $linha['rm'];
+
     $nome = $linha['nome'];
     $email = $linha['email'];
-    $senha = $linha['senha'];
-
-}
+    $senha = $linha['senha'];}
 
 ?>
 
@@ -34,24 +33,23 @@ while ($linha = $dados->fetch_assoc()) {
         <h1>Atualizar Dados</h1>
         <form action="update.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="rm" class="form-label">RM</label>
-                
-                <input type="text" class="form-control" name="rm" id="rm" aria-describedby="helpId" placeholder="" maxlength="5" minlength="5" readonly value="<?php echo"$rm"?>">
-                <small id="helpId" class="form-text text-muted">Rm em Uso</small>
+                <label for="nome" class="form-label">id</label>
+                <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder=""  value="<?php echo"$id"?>" readonly>
+                <small id="helpId" class="form-text text-muted">Não Editável</small>
             </div>
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" class="form-control" name="nome" id="nome" aria-describedby="helpId" placeholder=""  value="<?php echo"$nome"?>">
-                <small id="helpId" class="form-text text-muted">Digite o Nome Completo</small>
+                <small id="helpId" class="form-text text-muted">Nome Completo</small>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Password</label>
-                <input type="password" class="form-control" name="senha" id="" placeholder=""  value="<?php echo"$senha"?>">
-                <small id="helpId" class="form-text text-muted">Digite uma senha</small>
+                <input type="password" class="form-control" name="senha" id="senha" placeholder=""  value="<?php echo"$senha"?>">
+                <small id="helpId" class="form-text text-muted">altere a senha</small>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder=""  value="<?php echo"$email"?>">
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder=""  value="<?php echo"$email"?>">
                 <small id="emailHelpId" class="form-text text-muted">Digite seu email @etec.sp.gov.br</small>
             </div>
             <button type="submit">Atualizar</button>
@@ -70,3 +68,4 @@ while ($linha = $dados->fetch_assoc()) {
 </body>
 
 </html>
+<?php include "./headerfooter/footer.php"; ?>

@@ -1,16 +1,16 @@
 <?php
 session_start();
+include "./headerfooter/header.php";
 
-if (!isset($_SESSION['login_session']) and !isset($_SESSION['nome_session']) and !isset($_SESSION['avatar_session'])) {
+if (!isset($_SESSION['login_session']) and !isset($_SESSION['nome_session'])) {
   echo "<center><h1>Favor efetuar Login</h1><center>";
-  header("refresh:5, login.html");
+  header("refresh:5, login.php");
   session_destroy();
 }
 else{
 
 $username = $_SESSION['login_session'];
 $nome = $_SESSION['nome_session'];
-$avatar = $_SESSION['avatar_session'];
 
 
 $html = <<<HTML
@@ -39,12 +39,9 @@ $html = <<<HTML
         </h1>
         </h1>
       </div>
-      <div class="col-md-1 text-center">
-        <img src='$avatar' class='imgava'>
-      </div>
     </div>
     <div class="parabens-box">
-      <h2>Parabéns, você pesca muito</h2>
+      <h2>Parabéns,Você está logado</h2>
     </div>
   </div>
 
@@ -61,3 +58,4 @@ $html = <<<HTML
 HTML;
 echo "$html";
 };
+include "./headerfooter/footer.php"; ?>
